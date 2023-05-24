@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 public class Persoonal {
 	List<Persoona> lista1 = new ArrayList<Persoona>();
 	SortedSet<String> guia = new TreeSet<String>();
-	static double descuentoJur = 0.15;
-	static double descuentoFis = 0;
 	
 	public boolean agregarTelefono(String str) {
 		boolean encontre = guia.contains(str);
@@ -25,20 +23,22 @@ public class Persoonal {
 		}
 	}
 	public Fisica registrarFisica(String doc, String nomyape) {
-		String tel = guia.last();
-		guia.remove(tel);
 		Fisica p = new Fisica(doc, nomyape);
-		p.setTel(tel);
+		p.setTel(this.asignarNumero());
 		lista1.add(p);
 		return p;
 	}
 	public Juridica registrarJuridica(String doc, String nomyape) {
-		String tel = guia.last();
-		guia.remove(tel);
 		Juridica p = new Juridica(doc, nomyape);
-		p.setTel(tel);
+		p.setTel(this.asignarNumero());
 		lista1.add(p);
 		return p;
+	}
+	
+	public String asignarNumero() {
+		String tel = guia.last();
+		guia.remove(tel);
+		return tel;
 	}
 	
 	public boolean eliminarUsuario(Persoona p) {

@@ -5,7 +5,7 @@ public class Internacional extends Llamada{
 	public Internacional(Persoona q, Persoona q2, int d) {
 		this.emisor= q.getTel();
 		this.remitente= q2.getTel();
-		this.dur = dur;
+		this.dur = d;
 	}
 	
 	public double costoLlamada() {
